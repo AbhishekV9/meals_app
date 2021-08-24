@@ -35,8 +35,7 @@ const displayResults=(meals)=>{
         const mealString=meals.map((meal)=>{
             return `<li class="meal">
             <img src="${meal.strMealThumb}" /img>
-             <h2>${meal.strMeal}</h2> </li>
-             <p>${meal.strInstructions}`;
+             <h2>${meal.strMeal}</h2> </li>`;
      
          }).join('');
          mealsList.innerHTML=mealString;
