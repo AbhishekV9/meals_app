@@ -1,6 +1,7 @@
 
 searchBar=document.getElementById("searchBar");
 mealsList=document.getElementById("meals-list");
+container=document.getElementById("container");
 let meals=[];
 let url = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
 searchBar.addEventListener('keyup',(e)=>{
@@ -15,6 +16,10 @@ const getResults=async (searchString)=>{
         //console.log(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchString}`);
         meals=await res.json();
         console.log(meals);
+        console.log(searchString);
+        if(searchString==''){
+            meals.meals=null;   
+        }
         displayResults(meals.meals);
         
 
