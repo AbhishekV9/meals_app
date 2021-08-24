@@ -1,4 +1,4 @@
-console.log("hellow");
+
 searchBar=document.getElementById("searchBar");
 mealsList=document.getElementById("meals-list");
 let meals=[];
@@ -12,9 +12,11 @@ searchBar.addEventListener('keyup',(e)=>{
 const getResults=async (searchString)=>{
     try{
         const res= await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchString}`);
-        console.log(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchString}`);
+        //console.log(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchString}`);
         meals=await res.json();
         console.log(meals);
+        displayResults(meals.meals);
+        
 
     } catch(err){
         console.error(err);
@@ -24,4 +26,20 @@ const getResults=async (searchString)=>{
     // .then(res => res.json())
     // .then(data => console.log(data))
     // .catch(err => console.log(err))
+}
+
+const displayResults=(meals)=>{
+    if(meals===null){
+        mealsList.innerHTML='<h1> No Meal Availaible With This Name'
+    }else{
+        const mealString=meals.map((meal)=>{
+            return `<li class="meal">
+            <img src="${meal.strMealThumb}" /img>
+             <h2>${meal.strMeal}</h2> </li>
+             <p>${meal.strInstructions}`;
+     
+         }).join('');
+         mealsList.innerHTML=mealString;
+    }
+   
 }
