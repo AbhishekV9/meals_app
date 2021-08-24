@@ -42,13 +42,25 @@ input{
 li{
     list-style: none;
     padding: 10px;
-    margin: 15px;
+    
+    width:25%;
 }
 .meal h2{
     text-align: center;
+    margin-left: 35px;
 }
 li img{
+    margin-left:30px;
     height: 200px;
     width:200px;
     border: 1px solid lightgray;
+}
+.meal-name{
+    display: flex;
+    
+}
+.meal-name i{
+    font-size: 1.5rem;
+    margin-top:17px;
+    margin-left: 15px;
 }

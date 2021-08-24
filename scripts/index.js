@@ -21,8 +21,7 @@ const getResults=async (searchString)=>{
             meals.meals=null;   
         }
         displayResults(meals.meals);
-        
-
+        showDetails(meals.meals);
     } catch(err){
         console.error(err);
     }
@@ -40,10 +39,28 @@ const displayResults=(meals)=>{
         const mealString=meals.map((meal)=>{
             return `<li class="meal">
             <img src="${meal.strMealThumb}" /img>
-             <h2>${meal.strMeal}</h2> </li>`;
+             <div class="meal-name" id="${meal.idMeal}">
+             <h2 class="recipe-name">${meal.strMeal}</h2> 
+             <i class="far fa-heart fav-btn"></i>
+             </div>
+             </li>`;
      
          }).join('');
          mealsList.innerHTML=mealString;
     }
    
 }
+
+const showDetails=(meals)=>{
+
+}
+
+let searchList = document.getElementById('meals-list');
+searchList.addEventListener('click',(e)=>{
+    console.log(e.target);
+    let recipeId= e.target.parentNode.id;
+    console.log(recipeId);
+    if(e.target.className == 'recipe-name'){
+        window.open(`recipe.html?id=${recipeId}`);
+    }
+})
