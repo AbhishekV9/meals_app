@@ -9,6 +9,7 @@ header div{
     width:50%;
     display: flex;
     justify-content: space-evenly;
+    flex-wrap:wrap;
     color:white; 
 }
 a{
@@ -23,6 +24,7 @@ img{
     margin:50px;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 #meal-img-container{
@@ -31,6 +33,7 @@ img{
 #meal-detail-container{
     width: 55%;
     display: flex;
+    flex-wrap:wrap;
     justify-content: space-between;
 }
 #headings{

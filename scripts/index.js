@@ -19,7 +19,6 @@ const getResults=async (searchString)=>{
             meals.meals=null;   
         }
         displayResults(meals.meals);
-        showDetails(meals.meals);
     } catch(err){
         console.error(err);
     }
@@ -39,7 +38,7 @@ const displayResults=(meals)=>{
             <img src="${meal.strMealThumb}" /img>
              <div class="meal-name" id="${meal.idMeal}">
              <h2 class="recipe-name">${meal.strMeal}</h2> 
-             <i class="far fa-heart fav-btn"></i>
+             <i class="fas fa-heart fav-btn"></i>
              </div>
              </li>`;
      
@@ -49,12 +48,24 @@ const displayResults=(meals)=>{
    
 }
 
+function initializeLocalstorage(){
+    let localArray = [];
+    if(localStorage.getItem('favMeals') == null){
+        //create a new localStorage
+        localStorage.setItem('favMeals',JSON.stringify(localArray));
+    }
+}
+
+
 let searchList = document.getElementById('meals-list');
 searchList.addEventListener('click',(e)=>{
     console.log(e.target);
     let recipeId= e.target.parentNode.id;
-    console.log(recipeId);
     if(e.target.className == 'recipe-name'){
         window.open(`recipe.html?id=${recipeId}`);
     }
 })
+
+
+
+initializeLocalstorage();
