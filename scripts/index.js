@@ -15,8 +15,6 @@ const getResults=async (searchString)=>{
         const res= await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchString}`);
         //console.log(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchString}`);
         meals=await res.json();
-        console.log(meals);
-        console.log(searchString);
         if(searchString==''){
             meals.meals=null;   
         }
@@ -49,10 +47,6 @@ const displayResults=(meals)=>{
          mealsList.innerHTML=mealString;
     }
    
-}
-
-const showDetails=(meals)=>{
-
 }
 
 let searchList = document.getElementById('meals-list');

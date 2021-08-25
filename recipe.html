@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/recipe.css">
     <title>Recipe</title>
 </head>
 <body>
@@ -11,15 +12,24 @@
         <header>
             <div>
                 <h2>Meals App</h2> 
-                <h2>Home Page</h2>
-                <h2>My Favorites</h2>
+                <h2><a href="index.html">Home Page</a></h2>
+                <h2><a href="fav.html">My Favorites</a></h2>
             </div>  
         </header>
 
         <div id="container">
-            <img id="photo" src="" />
-            <h2 id="meal-name"></h2>
-            <p id="instruction"></p>
+            <div>
+                <span id="photo"></span>
+            </div>
+            <div>
+                <h2>Meal Name:</h2><h4 id="meal-name"></h4>
+                <h2>Meal Category:</h2><h4 id="cat"></h4>
+                <h2>Area:</h2><h4 id="area"></h4>
+
+                <div>
+                    <h2>Instruction:</h2><p id="instruction"></p>
+                </div>
+            </div>
         </div>
 
     </div>
