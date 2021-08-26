@@ -2,6 +2,7 @@
 searchBar=document.getElementById("searchBar");
 mealsList=document.getElementById("meals-list");
 container=document.getElementById("container");
+searchBtn=document.getElementById("search-btn");
 let isFav='fas';
 let notFav='far';
 let meals=[];
@@ -14,6 +15,13 @@ searchBar.addEventListener('keyup',(e)=>{
     getResults(searchString);
 })
 
+//added eventlistner to searchButton
+searchBtn.addEventListener('click',()=>{
+    const searchString=searchBar.value.toLowerCase();
+    console.log('click');
+    getResults(searchString);
+})
+
 
 //making api call and getting results on the basis of key tapped
 const getResults=async (searchString)=>{
@@ -21,9 +29,7 @@ const getResults=async (searchString)=>{
         const res= await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchString}`);
         //console.log(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchString}`);
         meals=await res.json();
-        if(searchString==''){
-            meals.meals=null;   
-        }else if(searchString.length<2){
+         if(searchString.length<2){
             meals.meals=1;
         }
         displayResults(meals.meals);

@@ -43,7 +43,7 @@ input{
     margin: 70px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     
 }
 li{
@@ -72,4 +72,8 @@ li img{
     margin-top:17px;
     margin-left: 15px;
     cursor: pointer;
+}
+
+.fas{
+    color:red;
 }
