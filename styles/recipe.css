@@ -97,5 +97,12 @@ img{
     #container{
         margin:0px;
         margin-top:50px;
+        width:100%;
+    }
+    #photo{
+        margin:-30px;
+    }
+    #meal-detail-container{
+        width:90%;
     }
 }
