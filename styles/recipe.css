@@ -53,3 +53,49 @@ img{
     width:300px;
     border: 1px solid darkslategray;
 }
+@media screen and (max-width:1000px){
+    #headings{
+        width:100%;
+        margin-bottom: 20px;
+    }
+    #meal-img-container{
+        width:40%;
+    }
+    #meal-detail-container{
+        width:35%;
+    }
+    #ins{
+        width:100%;
+    }
+    #container{
+        width:90%;
+    }
+}
+
+@media screen and (max-width:700px){
+   
+    header div{
+        width:100%;
+    }
+    #meal-img-container{
+        width:70%;
+    }
+    #meal-detail-container{
+        width:70%;
+        margin-top:55px;
+    }
+    
+}
+
+@media screen and (max-width:400px){
+    header div{
+        display: block;
+        width:70%;
+        margin-left:auto;
+        height:130px;
+    }
+    #container{
+        margin:0px;
+        margin-top:50px;
+    }
+}
