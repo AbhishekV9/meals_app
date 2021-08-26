@@ -2,6 +2,8 @@ let favMeals=JSON.parse(localStorage.getItem('favMeals'));
 mealsList=document.getElementById("meals-list");
 let url='https://www.themealdb.com/api/json/v1/1/lookup.php?i=';
 
+
+//fetching meals present in Local storage from api
 const fetchData=async (mealId)=>{
     try {
         let res=await fetch(url+mealId);
@@ -13,6 +15,7 @@ const fetchData=async (mealId)=>{
 }
 
 
+//showing favourite meals present in local Storage
 const showFav=()=>{
     
     if(favMeals.length===0){
@@ -27,6 +30,7 @@ const showFav=()=>{
     }
 }
 
+//displaying fav meals in dom
 const displayResults=(meal)=>{
     let isFav=true;
     mealsList.innerHTML +=`<li class="meal">
@@ -38,6 +42,8 @@ const displayResults=(meal)=>{
      </li>`;
 }
 
+
+//adding evenlistner click on heart button and recipe name
 mealsList.addEventListener('click',(e)=>{
     if(e.target.className == 'recipe-name'){
         let recipeId=e.target.parentNode.id;
@@ -52,5 +58,7 @@ mealsList.addEventListener('click',(e)=>{
         showFav();
     }
 })
+
+
 showFav();
 
