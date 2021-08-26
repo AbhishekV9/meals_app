@@ -96,6 +96,7 @@ searchList.addEventListener('click',(e)=>{
             localStorage.setItem('favMeals',JSON.stringify(localArray));
             e.target.classList.remove('far');
             e.target.classList.add('fas');
+            alert('Added to Favourites')
             console.log(localStorage);
         }
     }

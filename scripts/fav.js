@@ -1,4 +1,4 @@
-const favMeals=JSON.parse(localStorage.getItem('favMeals'));
+let favMeals=JSON.parse(localStorage.getItem('favMeals'));
 mealsList=document.getElementById("meals-list");
 let url='https://www.themealdb.com/api/json/v1/1/lookup.php?i=';
 
@@ -14,9 +14,13 @@ const fetchData=async (mealId)=>{
 
 
 const showFav=()=>{
+    
     if(favMeals.length===0){
-        mealsList.innerHtml='<h1>No Favourite Meals Present</h1>'
+        console.log('favMeals');
+        mealsList.innerHTML='<h1>No Favourite Meals Present</h1>'
     }else{
+        mealsList.innerHTML='';
+        console.log(favMeals);
         favMeals.map((mealId)=>{
             const mealData=fetchData(mealId);
         })
@@ -38,6 +42,14 @@ mealsList.addEventListener('click',(e)=>{
     if(e.target.className == 'recipe-name'){
         let recipeId=e.target.parentNode.id;
         window.open(`recipe.html?id=${recipeId}`);
+    }else if(e.target.classList.contains('fav-btn')){
+        let recipeId=e.target.parentNode.id;
+        let localArray=JSON.parse(localStorage.getItem('favMeals'));
+        localArray=localArray.filter((item)=> item != recipeId);
+        localStorage.setItem('favMeals',JSON.stringify(localArray));
+        favMeals=JSON.parse(localStorage.getItem('favMeals'));
+        alert('Removed From Favourites');
+        showFav();
     }
 })
 showFav();
