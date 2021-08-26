@@ -24,7 +24,7 @@ const showFav=()=>{
 }
 
 const displayResults=(meal)=>{
-
+    let isFav=true;
     mealsList.innerHTML +=`<li class="meal">
     <img src="${meal.strMealThumb}" /img>
      <div class="meal-name" id="${meal.idMeal}">
@@ -34,5 +34,11 @@ const displayResults=(meal)=>{
      </li>`;
 }
 
+mealsList.addEventListener('click',(e)=>{
+    if(e.target.className == 'recipe-name'){
+        let recipeId=e.target.parentNode.id;
+        window.open(`recipe.html?id=${recipeId}`);
+    }
+})
 showFav();
 
