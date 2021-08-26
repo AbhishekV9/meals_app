@@ -6,12 +6,16 @@ let isFav='fas';
 let notFav='far';
 let meals=[];
 let url = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
+
+//adding eventListner on keyup in searchBar
 searchBar.addEventListener('keyup',(e)=>{
     const searchString=e.target.value.toLowerCase();
     //console.log(searchString);
     getResults(searchString);
 })
 
+
+//making api call and getting results on the basis of key tapped
 const getResults=async (searchString)=>{
     try{
         const res= await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchString}`);
@@ -19,22 +23,23 @@ const getResults=async (searchString)=>{
         meals=await res.json();
         if(searchString==''){
             meals.meals=null;   
+        }else if(searchString.length<2){
+            meals.meals=1;
         }
         displayResults(meals.meals);
     } catch(err){
         console.error(err);
     }
-    // console.log(url+searchString);
-    // await fetch(url+'Arrabiata')
-    // .then(res => res.json())
-    // .then(data => console.log(data))
-    // .catch(err => console.log(err))
 }
 
+
+//displaying results on the basis of searchresults from an API Call and adding it to the DOM
 const displayResults=(meals)=>{
     let localArray = JSON.parse(localStorage.getItem('favMeals'));
     if(meals===null){
-        mealsList.innerHTML='<h1> No Meal Availaible With This Name'
+        mealsList.innerHTML='<h1> No Meal Availaible With This Name</h1>'
+    }else if(meals===1){
+        mealsList.innerHTML='<h1>Please Enter Atleast 2 Characters</h1>'
     }else{
         const mealString=meals.map((meal)=>{
             let recipeId=meal.idMeal;
@@ -56,6 +61,7 @@ const displayResults=(meals)=>{
    
 }
 
+//initializing localStorage
 function initializeLocalstorage(){
     let localArray = [];
     if(localStorage.getItem('favMeals') == null){
@@ -64,7 +70,7 @@ function initializeLocalstorage(){
     }
 }
 
-
+//adding event listner on the meal items present in the DOM
 let searchList = document.getElementById('meals-list');
 searchList.addEventListener('click',(e)=>{ 
     if(e.target.className == 'recipe-name'){
@@ -91,5 +97,5 @@ searchList.addEventListener('click',(e)=>{
 })
 
 
-
+//calling initializelocalStorage when DOM is Loaded
 document.addEventListener('DOMContentLoaded',initializeLocalstorage);
