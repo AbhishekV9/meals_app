@@ -18,7 +18,6 @@ searchBar.addEventListener('keyup',(e)=>{
 //added eventlistner to searchButton
 searchBtn.addEventListener('click',()=>{
     const searchString=searchBar.value.toLowerCase();
-    console.log('click');
     getResults(searchString);
 })
 

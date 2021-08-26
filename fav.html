@@ -1,12 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Meals App</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
-    
+    <div id="main-div"> 
+        <header>
+            <div>
+                <h2>Meals App</h2> 
+                <h2><a href="index.html">Home Page</a></h2>
+                <h2><a href="fav.html">My Favorites</a></h2>
+            </div>  
+        </header>
+       
+        <div id="container">
+            <div id="take-ip">
+                <input type="text" id="searchBar" placeholder="Enter Meal Name">
+                <button id="search-btn"> Search</button>
+            </div>
+            <ul id="meals-list">
+
+            </ul>
+        </div>
+    </div>
+    <script src="scripts/fav.js"></script>
 </body>
 </html>
