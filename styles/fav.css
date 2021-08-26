@@ -22,28 +22,11 @@ img{
 }
 
 
-#take-ip{
-    text-align: center;
-}
-input{
-    margin-top: 10px;
-    border-style: none;
-    font-size: 1rem;
-    width:50%;
-    height:2.2rem;
-    border-radius: 1rem;
-}
-#search-btn{
-    border-style: none;
-    height:2.2rem;
-    font-size: 1rem;
-    border-radius: 1rem;
-}
 #meals-list{
     margin: 70px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
     
 }
 li{

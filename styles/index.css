@@ -43,7 +43,7 @@ input{
     margin: 70px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
     
 }
 li{
