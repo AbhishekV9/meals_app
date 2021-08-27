@@ -3,6 +3,7 @@ let urlParams = new URLSearchParams(queryString);
 let recipeId=urlParams.get('id');
 
 
+//getiing details from api 
 const getDetails=async (recipeId)=>{
     try{
         const res=await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipeId}`);
@@ -14,6 +15,7 @@ const getDetails=async (recipeId)=>{
     }
 }
 
+//adding details on dom
 const showDetails=(meal)=>{
     const photo=document.getElementById("photo");
     photo.innerHTML=`<img src=${meal.meals[0].strMealThumb}>`;
